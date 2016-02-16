@@ -1,0 +1,34 @@
+{
+  "name": "passlawl",
+  "version": "1.0.0",
+  "description": "Generate weird random passwords",
+  "preferGlobal": true,
+  "bin": "src/index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecrmnn/passlawl"
+  },
+  "keywords": [
+    "random password",
+    "password generator",
+    "generator",
+    "password",
+    "passlawl"
+  ],
+  "author": "Daniel Eckermann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecrmnn/passlawl/issues"
+  },
+  "homepage": "https://github.com/ecrmnn/passlawl",
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
