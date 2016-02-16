@@ -15,6 +15,8 @@ npm install -g passlawl
 Generate random 4 word password in english (default)
 ```shell
 passlawl
+
+# Result: AbsorbingBreathNeverSang
 ```
 
 Genereate random 4 word password in norwegian (using locale)
@@ -22,4 +24,6 @@ Genereate random 4 word password in norwegian (using locale)
 passlawl --locale no
 # Or
 passlawl -l no
+
+# Result: KongeSavnetSelvopptattEtterspørsel
 ```
