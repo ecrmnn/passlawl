@@ -2,17 +2,17 @@
 
 'use strict';
 
+const passlawl = require('passlawl.js');
+const locales = passlawl.getAvailableLocales();
+const chalk = require('chalk');
 const pckg = require('../package.json');
-const uppercase = require('./uppercase');
 const program = require('commander');
+let validLocale = true;
 
 program.version(pckg.version, '-v, --version')
-  .option('-l, --locale [string]', 'set locale', function (locale) {
-    const locales = ['en', 'no'];
-
+  .option('-l, --locale [string]', 'set locale. available locales: ' + locales.join(', '), function (locale) {
     if (locales.indexOf(locale) === -1) {
-      console.error('Locale ' + locale + ', not supported. Supported locales: ' + locales.join(', '));
-
+      validLocale = false;
       return 'en';
     }
 
@@ -21,6 +21,8 @@ program.version(pckg.version, '-v, --version')
   }, 'en')
   .parse(process.argv);
 
-const words = require('./locale/' + program.locale);
-
-console.log(words.map(uppercase).join(''));
+if (validLocale) {
+  console.log(chalk.yellow(passlawl.locale(program.locale).get()));
+} else {
+  console.log(chalk.bgRed('Given locale not supported. Supported locales: ' + locales.join(', ')));
+}
